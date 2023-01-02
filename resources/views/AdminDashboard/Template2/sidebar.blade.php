@@ -120,7 +120,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
                     aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder-open"></i>
+                    <i class="fas fa-fw fa-info"></i>
                     <span>Desa Tambong</span>
                 </a>
                 <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -128,7 +128,8 @@
                         <h6 class="collapse-header">Informasi Desa : </h6>
                         <a class="collapse-item" href="{{ route('slide.index') }}"><i class="fas fa-fw fa-sliders"></i> Slide Banner</a>
                         <a class="collapse-item" href="{{ route('aparatur.index') }}"><i class="fas fa-fw fa-people-group"></i> Aparatur Desa</a>
-                        <a class="collapse-item" href="#"><i class="fas fa-fw fa-info"></i> Informasi Desa</a>
+                        <a class="collapse-item" href="{{ route('galeri.index') }}"><i class="fas fa-fw fa-folder-open"></i> Galeri Desa</a>
+                        {{-- <a class="collapse-item" href="#"><i class="fas fa-fw fa-info"></i> Informasi Desa</a> --}}
                     </div>
                 </div>
             </li>

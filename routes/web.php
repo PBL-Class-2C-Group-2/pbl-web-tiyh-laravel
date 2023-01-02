@@ -8,6 +8,7 @@ use App\Http\Controllers\Berita\KategoriBeritaController;
 use App\Http\Controllers\Berita\BeritaController;
 use App\Http\Controllers\Berita\SlideController;
 use App\Http\Controllers\Informasi\AparaturDesaController;
+use App\Http\Controllers\Informasi\GaleriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,14 +25,6 @@ use App\Http\Controllers\Informasi\AparaturDesaController;
 //     return view('welcome');
 // });
 
-// // Halaman Utama
-// Route::get('/beranda', function () {
-//     return view('HalamanUtama.beranda');
-// })->name('beranda');
-
-// Route::get('/beranda/tentang-desa', function () {
-//     return view('HalamanUtama.tentang-desa');
-// })->name('tentang-desa');
 
 // Frontend
 Route::get('/', [FrontendController::class, 'index'])->name('beranda');
@@ -68,6 +61,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('slide', SlideController::class);
     // Aparatur Desa
     Route::resource('aparatur', AparaturDesaController::class);
+    // Galeri
+    Route::resource('galeri', GaleriController::class);
 });
 
 
