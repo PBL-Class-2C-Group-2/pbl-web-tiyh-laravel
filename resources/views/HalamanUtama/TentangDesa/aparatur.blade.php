@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="text-center text-black-60" style="margin-top: 90px">
+        <div class="text-center text-black-60" style="margin-top: 100px">
             <h2>Aparatur Desa Tambong</h2>
             <hr style="height:10px;background:#d3ea3e;border:4px double #ffffff;">
         </div>
