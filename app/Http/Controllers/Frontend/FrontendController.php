@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\AparaturDesa;
 use App\Models\Berita;
+use App\Models\Galeri;
 use App\Models\KategoriBerita;
 use App\Models\Slide;
 use Illuminate\Support\Str;
@@ -41,6 +42,7 @@ class FrontendController extends Controller
         $berita = Berita::where('slug', $slug)->first();
         $kategoriberita = KategoriBerita::all();
         $aparatur = AparaturDesa::orderBy('id', 'ASC')->get();
+        $galeri = Galeri::orderBy('id', 'ASC')->get();
         $berita_terbaru = Berita::orderBy('created_at', 'DESC')->limit(5)->get();
         $jumlah = $berita->views + 1;
               Berita::where('slug', $slug)->update(
@@ -52,7 +54,8 @@ class FrontendController extends Controller
             'berita' => $berita,
             'kategoriberita'=> $kategoriberita,
             'aparatur' => $aparatur,
-            'berita_terbaru' => $berita_terbaru
+            'berita_terbaru' => $berita_terbaru,
+            'galeri' => $galeri
         ]);
     }
 
@@ -77,5 +80,11 @@ class FrontendController extends Controller
         $aparatur = AparaturDesa::orderBy('id', 'ASC')->get();
 
         return view('HalamanUtama.TentangDesa.aparatur', compact('aparatur'));
+    }
+
+    public function galeri_desa() {
+        $galeri = Galeri::orderBy('id', 'DESC')->get();
+
+        return view('HalamanUtama.TentangDesa.galeri-desa', compact('galeri'));
     }
 }

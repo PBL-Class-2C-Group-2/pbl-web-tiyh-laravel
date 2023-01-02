@@ -45,8 +45,8 @@
             <li><a class="dropdown-item" href="{{ route('tentang-desa') }}">Tentang Desa</a></li>
             <li><a class="dropdown-item" href="#">Visi Misi</a></li>
             <li><a class="dropdown-item" href="#">Sejarah</a></li>
-            <li><a class="dropdown-item" href="{{ route('aparatur')}}">Aparatur Desa</a></li>
-            <li><a class="dropdown-item" href="#">Galeri Desa</a></li>
+            <li><a class="dropdown-item" href="{{ route('aparatur-desa')}}">Aparatur Desa</a></li>
+            <li><a class="dropdown-item" href="{{ route('galeri-desa') }}">Galeri Desa</a></li>
           </ul>
         </li>
         <br>

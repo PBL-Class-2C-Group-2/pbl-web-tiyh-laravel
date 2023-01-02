@@ -138,7 +138,7 @@
                                 <div class="carousel-item {{ $i == '1' ? 'active':'' }}" data-bs-interval="5000">
                                 @php $i++; @endphp
                                 @if ($item->foto)
-                                <img src="{{ asset('uploads/' . $item->foto)}}" class="d-block w-100 mt-2" alt="...">
+                                <img src="{{ asset('uploads/' . $item->foto)}}" class="d-block w-100 mt-2" alt="..." height="500">
                                 @else
                                 <img src="{{ asset('Photo/user foto.png')}}" class="d-block w-100 mt-2" alt="...">
                                 @endif
@@ -164,23 +164,25 @@
                     <div class="sidebar-informasi">
                         <h4 class="mt-5">&nbsp;<i class="bi bi-archive-fill"></i>&nbsp;Galeri Desa</h4>
                         <hr style="height:10px;background:#d3ea3e;border:4px double #ffffff;">
-                        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="background:#d3ea3e;border:4px double #ffffff;">
+                        <div id="carouselExampleInterval2" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
-                              <div class="carousel-item active" data-bs-interval="5000">
-                                <img src="{{ asset('Photo/slider.JPG')}}" class="d-block w-100" alt="...">
-                              </div>
-                              <div class="carousel-item" data-bs-interval="2000">
-                                <img src="{{ asset('Photo/slider.JPG')}}" class="d-block w-100" alt="...">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="{{ asset('Photo/slider.JPG')}}" class="d-block w-100" alt="...">
-                              </div>
+                                @php $i = 1; @endphp
+                                @foreach ($galeri as $item)
+                                    <div class="carousel-item {{ $i == '1' ? 'active':'' }}" data-bs-interval="5000">
+                                    @php $i++; @endphp
+                                    @if ($item->foto_galeri)
+                                    <img src="{{ asset('uploads/' . $item->foto_galeri)}}" class="d-block w-100 mt-2" alt="..." height="300">
+                                    @else
+                                    <img src="{{ asset('Photo/slider.JPG')}}" class="d-block w-100 mt-2" alt="...">
+                                    @endif
+                                    </div>
+                                @endforeach
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval2" data-bs-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                               <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval2" data-bs-slide="next">
                               <span class="carousel-control-next-icon" aria-hidden="true"></span>
                               <span class="visually-hidden">Next</span>
                             </button>
