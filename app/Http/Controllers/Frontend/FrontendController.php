@@ -8,7 +8,7 @@ use App\Models\Berita;
 use App\Models\KategoriBerita;
 use App\Models\Slide;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;//
 
 class FrontendController extends Controller
 {
@@ -71,5 +71,11 @@ class FrontendController extends Controller
             'berita_terbaru' => $berita_terbaru,
             'berita' => $berita,
         ]);
+    }
+
+    public function aparatur() {
+        $aparatur = AparaturDesa::orderBy('id', 'ASC')->get();
+
+        return view('HalamanUtama.TentangDesa.aparatur', compact('aparatur'));
     }
 }

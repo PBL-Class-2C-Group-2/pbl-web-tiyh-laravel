@@ -39,6 +39,7 @@ Route::get('/tentang-desa', [FrontendController::class, 'tentang_desa'])->name('
 Route::get('/berita-desa', [FrontendController::class, 'berita_desa'])->name('berita-desa');
 Route::get('/detail-berita/{slug}', [FrontendController::class, 'detail_berita'])->name('detail-berita');
 Route::get('/kategori/{kategori}', [FrontendController::class, 'detail_kategori'])->name('berita.kategori');
+Route::get('/aparatur}', [FrontendController::class, 'aparatur'])->name('aparatur');
 
 
 // login ke admin
