@@ -16,7 +16,7 @@ class VisiMisiController extends Controller
     public function index()
     {
         $visimisi = VisiMisi::all();
-        return view('AdminDashboard.VisiMisi.visimisi', compact('visimisi'));
+        return view('AdminDashboard.VisiMisi.visi-misi', compact('visimisi'));
     }
 
     /**
@@ -59,8 +59,11 @@ class VisiMisiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $visimisi = VisiMisi::findorfail($id);
+
+        return view('AdminDashboard.VisiMisi.visi-misi-edit', compact('visimisi'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -71,7 +74,18 @@ class VisiMisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $this->validate($request, [
+        //     'visi' => 'required|min:3',
+        //     'misi' => 'required|min:3'
+        // ]);
+
+        $visimisi = VisiMisi::findorfail($id);
+
+        $visimisi->update([
+            'visi' => $request->visi,
+            'misi' => $request->misi
+        ]);
+        return redirect()->route('visi-misi.index')->with('info', 'Data Berhasil Diubah!');
     }
 
     /**
@@ -85,3 +99,4 @@ class VisiMisiController extends Controller
         //
     }
 }
+

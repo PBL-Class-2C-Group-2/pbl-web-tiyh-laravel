@@ -83,17 +83,17 @@ class FrontendController extends Controller
         return view('HalamanUtama.TentangDesa.aparatur', compact('aparatur'));
     }
 
-<<<<<<< HEAD
     public function visimisi() {
         $visimisi = VisiMisi::all();
 
-        return view('AdminDashboard.VisiMisi', compact('visimisi'));
-=======
+        return view('HalamanUtama.TentangDesa.visimisi', compact('visimisi'));
+    }
+
     public function galeri_desa() {
         $galeri = Galeri::orderBy('id', 'DESC')->get();
 
         return view('HalamanUtama.TentangDesa.galeri-desa', compact('galeri'));
->>>>>>> cee9b5b7f4506e2d7151b3cb620ac19818840bb2
+
     }
 }
 

@@ -8,11 +8,8 @@ use App\Http\Controllers\Berita\KategoriBeritaController;
 use App\Http\Controllers\Berita\BeritaController;
 use App\Http\Controllers\Berita\SlideController;
 use App\Http\Controllers\Informasi\AparaturDesaController;
-<<<<<<< HEAD
 use App\Http\Controllers\Informasi\VisiMisiController;
-=======
 use App\Http\Controllers\Informasi\GaleriController;
->>>>>>> cee9b5b7f4506e2d7151b3cb620ac19818840bb2
 
 /*
 |--------------------------------------------------------------------------
@@ -36,12 +33,10 @@ Route::get('/tentang-desa', [FrontendController::class, 'tentang_desa'])->name('
 Route::get('/berita-desa', [FrontendController::class, 'berita_desa'])->name('berita-desa');
 Route::get('/detail-berita/{slug}', [FrontendController::class, 'detail_berita'])->name('detail-berita');
 Route::get('/kategori/{kategori}', [FrontendController::class, 'detail_kategori'])->name('berita.kategori');
-<<<<<<< HEAD
-Route::get('/visi-misi}', [FrontendController::class, 'visimisi'])->name('visi-misi');
-=======
+Route::get('/visimisi}', [FrontendController::class, 'visimisi'])->name('visimisi');
 Route::get('/aparatur-desa}', [FrontendController::class, 'aparatur'])->name('aparatur-desa');
 Route::get('/galeri-desa}', [FrontendController::class, 'galeri_desa'])->name('galeri-desa');
->>>>>>> cee9b5b7f4506e2d7151b3cb620ac19818840bb2
+
 
 
 // login ke admin
@@ -70,13 +65,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('slide', SlideController::class);
     // Aparatur Desa
     Route::resource('aparatur', AparaturDesaController::class);
-<<<<<<< HEAD
     // Visi Misi
     Route::resource('visi-misi', VisiMisiController::class);
-=======
     // Galeri
     Route::resource('galeri', GaleriController::class);
->>>>>>> cee9b5b7f4506e2d7151b3cb620ac19818840bb2
+    //
 });
 
 
