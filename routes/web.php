@@ -8,6 +8,7 @@ use App\Http\Controllers\Berita\KategoriBeritaController;
 use App\Http\Controllers\Berita\BeritaController;
 use App\Http\Controllers\Berita\SlideController;
 use App\Http\Controllers\Informasi\AparaturDesaController;
+use App\Http\Controllers\Informasi\VisiMisiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::get('/berita-desa', [FrontendController::class, 'berita_desa'])->name('be
 Route::get('/detail-berita/{slug}', [FrontendController::class, 'detail_berita'])->name('detail-berita');
 Route::get('/kategori/{kategori}', [FrontendController::class, 'detail_kategori'])->name('berita.kategori');
 Route::get('/aparatur}', [FrontendController::class, 'aparatur'])->name('aparatur');
+Route::get('/visi-misi}', [FrontendController::class, 'visimisi'])->name('visi-misi');
 
 
 // login ke admin
@@ -68,6 +70,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('slide', SlideController::class);
     // Aparatur Desa
     Route::resource('aparatur', AparaturDesaController::class);
+    // Visi Misi
+    Route::resource('visi-misi', VisiMisiController::class);
 });
 
 

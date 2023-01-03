@@ -7,6 +7,7 @@ use App\Models\AparaturDesa;
 use App\Models\Berita;
 use App\Models\KategoriBerita;
 use App\Models\Slide;
+use App\Models\VisiMisi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;//
 
@@ -78,4 +79,11 @@ class FrontendController extends Controller
 
         return view('HalamanUtama.TentangDesa.aparatur', compact('aparatur'));
     }
+
+    public function visimisi() {
+        $visimisi = VisiMisi::all();
+
+        return view('AdminDashboard.VisiMisi', compact('visimisi'));
+    }
 }
+
