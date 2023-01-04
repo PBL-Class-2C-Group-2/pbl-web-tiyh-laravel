@@ -30,6 +30,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('kategori-berita',
     App\Http\Controllers\API\KategoriBeritaController::class);
 
+    // Berita
+    Route::apiResource('/berita', App\Http\Controllers\API\BeritaController::class);
 
     // API route for logout user
     Route::post('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
