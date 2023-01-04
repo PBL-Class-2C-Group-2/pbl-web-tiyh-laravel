@@ -2,8 +2,7 @@
 
 @section('content')
         <div class="row">
-            <div class="mt-3 text-center text-black-60">
-                <hr style="height:10px;background:#d3ea3e;border:4px double #ffffff;">
+            <div class="mt-5 text-center text-black-60">
                 <h2>Berita Desa Tambong</h2>
                 <hr style="height:10px;background:#d3ea3e;border:4px double #ffffff;">
             </div>

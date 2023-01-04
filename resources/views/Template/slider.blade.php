@@ -7,7 +7,7 @@
                 <div class="carousel-item {{ $i == '1' ? 'active':'' }}" data-bs-interval="5000">
                     @php $i++; @endphp
                     @if ($row->gambar_slide)
-                    <img src="{{ asset('uploads/' . $row->gambar_slide) }}" class="d-block w-100" height="500" alt="...">
+                    <img src="{{ asset('uploads/' . $row->gambar_slide) }}" class="d-block w-100" height="600" alt="...">
                     @else
                     <img src="{{ asset('Photo/slider.JPG') }}" class="d-block w-100" height="500" alt="...">
                     @endif

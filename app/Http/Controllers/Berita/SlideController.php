@@ -41,7 +41,7 @@ class SlideController extends Controller
     {
         $this->validate($request, [
             'judul_slide' => 'required|min:5',
-            'gambar_slide' => 'mimes:png,jpg,jpeg,gif,bmp'
+            'gambar_slide' => 'mimes:png,jpg,jpeg,gif,bmp,webp'
         ]);
 
         if (!empty($request->file('gambar_slide'))) {
@@ -50,7 +50,7 @@ class SlideController extends Controller
 
             Slide::create($slide);
 
-            return redirect()->route('slide.index')->with('success', 'Data Berhasil Tersimpan!');            
+            return redirect()->route('slide.index')->with('success', 'Data Berhasil Tersimpan!');
         } else {
             $slide = $request->all();
 
@@ -95,7 +95,7 @@ class SlideController extends Controller
     {
         $this->validate($request, [
             'judul_slide' => 'required|min:5',
-            'gambar_slide' => 'mimes:png,jpg,jpeg,gif,bmp'
+            'gambar_slide' => 'mimes:png,jpg,jpeg,gif,bmp,webp'
         ]);
 
         if (empty($request->file('gambar_slide'))) {
@@ -105,7 +105,7 @@ class SlideController extends Controller
                 'link' => $request->link,
                 'status' => $request->status
             ]);
-            return redirect()->route('slide.index')->with('info', 'Data Berhasil Diubah!');            
+            return redirect()->route('slide.index')->with('info', 'Data Berhasil Diubah!');
         } else {
             $slide = Slide::findorfail($id);
             Storage::delete($slide->gambar_slide);
@@ -131,10 +131,10 @@ class SlideController extends Controller
         if (!$slide) {
             return redirect()->back()->with('success', 'Mohon Maaf Data Ditidak Ada!');
         }
-       
+
         Storage::delete($slide->gambar_slide);
         $slide->delete();
-        
+
         return redirect()->route('slide.index')->with('success', 'Data Berhasil Dihapus!');
     }
 }

@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-md-8" style="margin-top: 90px; background-color:rgb(246, 246, 234);">
                 <div class="row">
-                    <div class="mt-1 text-center text-black-60">
-                        <hr style="height:10px;background:#d3ea3e;border:4px double #ffffff;">
+                    <div class="mt-4 text-center text-black-60">
                         <h2>Berita Desa Tambong</h2>
                         <hr style="height:10px;background:#d3ea3e;border:4px double #ffffff;">
                     </div>
