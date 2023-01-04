@@ -6,37 +6,27 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class BeritaResource extends JsonResource
 {
-    //define properti
-    public $status;
-    public $message;
-
-    /**
-     * __construct
-     *
-     * @param  mixed $status
-     * @param  mixed $message
-     * @param  mixed $resource
-     * @return void
-     */
-    public function __construct($status, $message, $resource)
-    {
-        parent::__construct($resource);
-        $this->status  = $status;
-        $this->message = $message;
-    }
-
     /**
      * Transform the resource into an array.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
     {
         return [
-            'success'   => $this->status,
-            'message'   => $this->message,
-            'data'      => $this->resource
-        ];
+            'id' => $this->id,
+            'judul' => $this->judul,
+            'slug' => $this->slug,
+            'deskripsi' => $this->deskripsi,
+            'kategori_berita_id' => $this->kategori_berita_id,
+            'user_id' => $this->user_id,
+            'gambar_berita' => $this->gambar_berita,
+            'aktivasi' => $this->aktivasi,
+            'views' => $this->views,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            ];
+
     }
 }
