@@ -74,6 +74,7 @@
   </div> --}}
 
   <!-- footer -->
+  <br><br><br><br><br>
   @include('Template.footer')
 
 </body>
