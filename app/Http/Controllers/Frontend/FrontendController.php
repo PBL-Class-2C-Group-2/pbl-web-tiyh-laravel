@@ -8,6 +8,7 @@ use App\Models\Berita;
 use App\Models\Galeri;
 use App\Models\KategoriBerita;
 use App\Models\KategoriProduk;
+use App\Models\Produk;
 use App\Models\Slide;
 use App\Models\VisiMisi;
 use Illuminate\Support\Str;
@@ -18,9 +19,11 @@ class FrontendController extends Controller
     public function index() {
         $berita = Berita::orderBy('created_at', 'DESC')->limit(3)->get();
         $slide = Slide::orderBy('id', 'DESC')->get();
+        $produk = Produk::orderBy('created_at', 'DESC')->limit(3)->get();
         return view('HalamanUtama.beranda', [
             'berita' => $berita,
-            'slide' => $slide
+            'slide' => $slide,
+            'produk' => $produk
         ]);
     }
 
