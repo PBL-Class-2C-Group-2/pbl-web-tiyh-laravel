@@ -30,6 +30,7 @@
 
 @section('content')
 <div class="row">
+    {{-- Kategori Produk --}}
     <div class="d-flex mt-5">
         <div class="p-2 flex-grow-1">
             <h4>Kategori Produk Desa Tambong</h4>

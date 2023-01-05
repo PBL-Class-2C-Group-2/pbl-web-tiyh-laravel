@@ -77,8 +77,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Menu : </h6>
                         <a class="collapse-item" href="{{ route('kategori-produk.index') }}"><i class="fas fa-fw fa-tag"></i> Kategori</a>
-                        <a class="collapse-item" href="#"><i class="fas fa-fw fa-shop"></i> Toko</a>
-                        <a class="collapse-item" href="#"><i class="fas fa-fw fa-bag-shopping"></i> Produk</a>
+                        <a class="collapse-item" href="{{ route('toko.index') }}"><i class="fas fa-fw fa-shop"></i> Toko</a>
+                        <a class="collapse-item" href="{{ route('produk.index') }}"><i class="fas fa-fw fa-bag-shopping"></i> Produk</a>
                     </div>
                 </div>
             </li>

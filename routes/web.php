@@ -11,6 +11,8 @@ use App\Http\Controllers\Informasi\AparaturDesaController;
 use App\Http\Controllers\Informasi\VisiMisiController;
 use App\Http\Controllers\Informasi\GaleriController;
 use App\Http\Controllers\Produk\KategoriProdukController;
+use App\Http\Controllers\Produk\TokoController;
+use App\Http\Controllers\Produk\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +80,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('galeri', GaleriController::class);
     // Kategori Produk
     Route::resource('kategori-produk', KategoriProdukController::class);
+    // Toko
+    Route::resource('toko', TokoController::class);
+    // Produk
+    Route::resource('produk', ProdukController::class);
 });
 
 
