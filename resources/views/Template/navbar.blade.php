@@ -30,7 +30,7 @@
         </li>
         <!-- Produk -->
         <li class="nav-item">
-          <a class="nav-link nav-link-ltr" href="#"><i class="bi bi-shop"></i> Produk Desa</a>
+          <a class="nav-link nav-link-ltr" href="{{ route('produk-desa') }}"><i class="bi bi-shop"></i> Produk Desa</a>
         </li>
         <!-- Berita -->
         <li class="nav-item">
@@ -44,9 +44,9 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{ route('tentang-desa') }}">Tentang Desa</a></li>
             <li><a class="dropdown-item" href="{{ route('visimisi') }}">Visi Misi</a></li>
-            <li><a class="dropdown-item" href="#">Sejarah</a></li>
             <li><a class="dropdown-item" href="{{ route('aparatur-desa')}}">Aparatur Desa</a></li>
             <li><a class="dropdown-item" href="{{ route('galeri-desa') }}">Galeri Desa</a></li>
+            <li><a class="dropdown-item" href="#">Sejarah</a></li>
           </ul>
         </li>
         <br>

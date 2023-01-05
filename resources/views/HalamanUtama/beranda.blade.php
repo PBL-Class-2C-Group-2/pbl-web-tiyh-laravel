@@ -25,7 +25,7 @@
                 <h4>Berita Desa Tambong</h4>
             </div>
             <a href="{{ route('berita-desa') }}" style="text-decoration: none;">
-                <div class="p-2"><p style="color:cadetblue">Selengkapnya..</p></div>
+                <div class="p-2"><p style="color:cadetblue">Selengkapnya >>></p></div>
             </a>
         </div>
         <div>
@@ -61,17 +61,26 @@
             <p>Data Masih Kosong</p>
         @endforelse
     </div>
+    <br>
+
+    {{-- Produk --}}
+    <div class="row">
+        <div class="d-flex mt-5 mb-0">
+            <div class="p-2 flex-grow-1">
+                <h4>Produk Desa Tambong</h4>
+            </div>
+            <a href="{{ route('produk-desa') }}" style="text-decoration: none;">
+                <div class="p-2"><p style="color:cadetblue">Selengkapnya >>></p></div>
+            </a>
+        </div>
+        <div>
+        <hr style="height:5px;background:#d3ea3e;border:2px double #ffffff; margin-top:-5px;">
+        </div>
+    </div>
+
   </div>
+  {{-- End Container Fluid --}}
 
-  <!-- Produk -->
-  {{-- <div class="container-fluid">
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi quia velit reiciendis dignissimos quas eaque assumenda harum quam temporibus quisquam.</p>
-  </div> --}}
-
-  <!-- Tentang Desa -->
-  {{-- <div class="container-fluid">
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi quia velit reiciendis dignissimos quas eaque assumenda harum quam temporibus quisquam.</p>
-  </div> --}}
 
   <!-- footer -->
   <br><br><br><br><br>

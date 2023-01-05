@@ -7,20 +7,26 @@
             <hr style="height:10px;background:#d3ea3e;border:4px double #ffffff;">
         </div>
         @forelse ($galeri as $item)
-        <div class="col-md-6 p-2 border">
-            <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <img src="{{ asset('uploads/' . $item->foto_galeri) }}" alt="..." width="250" height="200">
+            <div class="col-6">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{ asset('uploads/' . $item->foto_galeri) }}" class="w-100 rounded" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title">Keterangan</h5>
+                        <p class="card-text">{!! $item->keterangan !!}</p>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-                <div class="flex-grow-1 ms-3">
-                    <h4>Keterangan</h4><hr>
-                    <p>{!! $item->keterangan !!}</p>
-                </div>
-              </div>
-        </div>
-        @empty
-            <p class="text-center">Data Masih Kosong</p>
-        @endforelse
+            </div>
+            @empty
+                <p class="text-center">Data Masih Kosong</p>
+            @endforelse
     </div>
+    <br><br><br><br><br>
 
 @endsection
+

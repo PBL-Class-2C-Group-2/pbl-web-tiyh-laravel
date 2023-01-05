@@ -10,6 +10,7 @@ use App\Http\Controllers\Berita\SlideController;
 use App\Http\Controllers\Informasi\AparaturDesaController;
 use App\Http\Controllers\Informasi\VisiMisiController;
 use App\Http\Controllers\Informasi\GaleriController;
+use App\Http\Controllers\Produk\KategoriProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,14 +29,20 @@ use App\Http\Controllers\Informasi\GaleriController;
 
 
 // Frontend
+// beranda
 Route::get('/', [FrontendController::class, 'index'])->name('beranda');
-Route::get('/tentang-desa', [FrontendController::class, 'tentang_desa'])->name('tentang-desa');
+// berita
 Route::get('/berita-desa', [FrontendController::class, 'berita_desa'])->name('berita-desa');
 Route::get('/detail-berita/{slug}', [FrontendController::class, 'detail_berita'])->name('detail-berita');
 Route::get('/kategori/{kategori}', [FrontendController::class, 'detail_kategori'])->name('berita.kategori');
-Route::get('/visimisi}', [FrontendController::class, 'visimisi'])->name('visimisi');
-Route::get('/aparatur-desa}', [FrontendController::class, 'aparatur'])->name('aparatur-desa');
-Route::get('/galeri-desa}', [FrontendController::class, 'galeri_desa'])->name('galeri-desa');
+// Produk Desa
+Route::get('/produk-desa', [FrontendController::class, 'produk_desa'])->name('produk-desa');
+// Tentang Desa
+Route::get('/tentang-desa', [FrontendController::class, 'tentang_desa'])->name('tentang-desa');
+Route::get('/visimisi', [FrontendController::class, 'visimisi'])->name('visimisi');
+Route::get('/aparatur-desa', [FrontendController::class, 'aparatur'])->name('aparatur-desa');
+Route::get('/galeri-desa', [FrontendController::class, 'galeri_desa'])->name('galeri-desa');
+
 
 
 
@@ -69,7 +76,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('visi-misi', VisiMisiController::class);
     // Galeri
     Route::resource('galeri', GaleriController::class);
-    //
+    // Kategori Produk
+    Route::resource('kategori-produk', KategoriProdukController::class);
 });
 
 

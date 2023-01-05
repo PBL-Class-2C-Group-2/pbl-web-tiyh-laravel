@@ -7,10 +7,11 @@ use App\Models\AparaturDesa;
 use App\Models\Berita;
 use App\Models\Galeri;
 use App\Models\KategoriBerita;
+use App\Models\KategoriProduk;
 use App\Models\Slide;
 use App\Models\VisiMisi;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;//
+use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
@@ -94,6 +95,17 @@ class FrontendController extends Controller
 
         return view('HalamanUtama.TentangDesa.galeri-desa', compact('galeri'));
 
+    }
+
+    // fungsi untuk halaman Produk Desa
+    public function produk_desa() {
+        $kategori_produk = KategoriProduk::orderBy('id', 'DESC')->get();
+        $slide = Slide::orderBy('id', 'DESC')->get();
+
+        return view('HalamanUtama.HalamanProduk.produk-desa', [
+            'kategori_produk'=> $kategori_produk,
+            'slide' => $slide
+        ]);
     }
 }
 

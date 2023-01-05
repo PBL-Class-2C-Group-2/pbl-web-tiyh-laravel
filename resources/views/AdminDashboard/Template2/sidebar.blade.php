@@ -62,7 +62,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Lapak Desa
+                Produk Desa
             </div>
 
             <!-- Lapak Desa -->
@@ -70,13 +70,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-store"></i>
-                    <span>Lapak Desa Tambong</span>
+                    <span>Produk Desa Tambong</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Lapak : </h6>
-                        <a class="collapse-item" href="#"><i class="fas fa-fw fa-tag"></i> Kategori</a>
+                        <h6 class="collapse-header">Menu : </h6>
+                        <a class="collapse-item" href="{{ route('kategori-produk.index') }}"><i class="fas fa-fw fa-tag"></i> Kategori</a>
                         <a class="collapse-item" href="#"><i class="fas fa-fw fa-shop"></i> Toko</a>
                         <a class="collapse-item" href="#"><i class="fas fa-fw fa-bag-shopping"></i> Produk</a>
                     </div>
