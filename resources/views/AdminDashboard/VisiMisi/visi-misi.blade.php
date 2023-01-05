@@ -48,7 +48,7 @@
                                     <!-- isi tabel -->
                                     <tbody>
                                         @forelse($visimisi as $object)
-                                        <tr>
+                                        <tr class="text-center">
                                             <td>{!! $object->visi !!}</td>
                                             <td>{!! $object->misi !!}</td>
                                             <td>

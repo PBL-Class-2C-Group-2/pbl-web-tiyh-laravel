@@ -15,4 +15,8 @@ class Toko extends Model
     ];
 
     protected $hidden = [];
+
+    public function toko_desa() {
+        return $this->hasMany(Toko::class, 'toko_id', 'id');
+    }
 }

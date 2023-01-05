@@ -26,4 +26,8 @@ class KategoriProduk extends Model
         return 'slug';
     }
 
+    public function produk() {
+        return $this->hasMany(Produk::class, 'kategori_produk_id', 'id');
+    }
+
 }

@@ -102,12 +102,33 @@ class FrontendController extends Controller
 
     // fungsi untuk halaman Produk Desa
     public function produk_desa() {
+
         $kategori_produk = KategoriProduk::orderBy('id', 'DESC')->get();
         $slide = Slide::orderBy('id', 'DESC')->get();
+        $produk = Produk::orderBy('created_at', 'DESC')->get();
 
         return view('HalamanUtama.HalamanProduk.produk-desa', [
             'kategori_produk'=> $kategori_produk,
-            'slide' => $slide
+            'slide' => $slide,
+            'produk' => $produk
+        ]);
+    }
+
+    // Detail Produk
+    public function detail_produk($slug) {
+        $produk = Produk::where('slug', $slug)->first();
+        $kategori = KategoriProduk::all();
+        $produk_terbaru = Produk::orderBy('created_at', 'DESC')->limit(5)->get();
+        $jumlah = $produk->views + 1;
+              Produk::where('slug', $slug)->update(
+              [
+                  'views' => $jumlah
+              ]
+              );
+        return view('HalamanUtama.HalamanProduk.detail-produk', [
+            'produk' => $produk,
+            'kategori'=> $kategori,
+            'produk_terbaru' => $produk_terbaru
         ]);
     }
 }

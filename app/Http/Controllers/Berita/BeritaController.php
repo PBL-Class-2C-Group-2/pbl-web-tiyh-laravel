@@ -45,6 +45,7 @@ class BeritaController extends Controller
     {
         $this->validate($request, [
             'judul' => 'required|min:4',
+            'gambar_berita' => 'mimes:png,jpg,jpeg,gif,bmp,webp'
         ]);
 
         $berita = $request->all();
@@ -93,9 +94,10 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $this->validate($request, [
-        //     'judul' => 'required|min:4',
-        // ]);
+        $this->validate($request, [
+            'judul' => 'required|min:4',
+            'gambar_berita' => 'mimes:png,jpg,jpeg,gif,bmp,webp'
+        ]);
 
         if (empty($request->file('gambar_berita'))) {
             $berita = Berita::findorfail($id);
