@@ -10,6 +10,7 @@ use App\Models\KategoriBerita;
 use App\Models\KategoriProduk;
 use App\Models\Produk;
 use App\Models\Slide;
+use App\Models\Toko;
 use App\Models\VisiMisi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -103,12 +104,12 @@ class FrontendController extends Controller
     // fungsi untuk halaman Produk Desa
     public function produk_desa() {
 
-        $kategori_produk = KategoriProduk::orderBy('id', 'DESC')->get();
+        $kategori = KategoriProduk::orderBy('id', 'DESC')->get();
         $slide = Slide::orderBy('id', 'DESC')->get();
         $produk = Produk::orderBy('created_at', 'DESC')->get();
 
         return view('HalamanUtama.HalamanProduk.produk-desa', [
-            'kategori_produk'=> $kategori_produk,
+            'kategori'=> $kategori,
             'slide' => $slide,
             'produk' => $produk
         ]);
@@ -126,6 +127,37 @@ class FrontendController extends Controller
               ]
               );
         return view('HalamanUtama.HalamanProduk.detail-produk', [
+            'produk' => $produk,
+            'kategori'=> $kategori,
+            'produk_terbaru' => $produk_terbaru
+        ]);
+    }
+
+    // Menampilkan Produk berdasarkan Kategori
+    public function kategoriProduk(KategoriProduk $kategoriproduk) {
+        $produkKategori = $kategoriproduk->produk()->get();
+        $produk = Produk::all();
+        $kategori = KategoriProduk::all();
+        $produk_terbaru = Produk::orderBy('created_at', 'DESC')->limit(5)->get();
+
+        return view('HalamanUtama.HalamanProduk.kategori-produk', [
+            'produkKategori' => $produkKategori,
+            'produk' => $produk,
+            'kategori'=> $kategori,
+            'produk_terbaru' => $produk_terbaru
+        ]);
+    }
+
+    // Menampilkan Toko
+    public function tokoDesa($slug) {
+        $toko = Toko::where('slug', $slug)->first();
+        $produk = Produk::all();
+        $kategori = KategoriProduk::all();
+        $produk_terbaru = Produk::orderBy('created_at', 'DESC')->limit(5)->get();
+
+        return view('HalamanUtama.HalamanProduk.toko-desa', [
+
+            'toko' => $toko,
             'produk' => $produk,
             'kategori'=> $kategori,
             'produk_terbaru' => $produk_terbaru

@@ -1,57 +1,38 @@
-@extends('layouts.detailberita')
+@extends('layouts.kategori')
 
 @section('content')
         <div class="row">
-            <div class="col-lg-8" style="margin-top: 90px; background-color:rgb(246, 246, 234);">
+            <div class="col-md-8" style="margin-top: 90px; background-color:rgb(246, 246, 234);">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="div mt-2">
-                            <img src="{{ asset('uploads/' . $produk->foto ) }}" alt="" class="w-100 rounded">
-                        </div>
+                    <div class="mt-4 text-center text-black-60">
+                        <h2>Produk Desa Tambong</h2>
+                        <hr style="height:10px;background:#d3ea3e;border:4px double #ffffff;">
                     </div>
-                    <div class="col-md-6">
-                        <div class="detail-content mt-2 p-2">
-                            {{-- Judul Berita --}}
-                            <h2>{{ $produk->nama_produk }}</h2>
-                            <div class="detail-badge" style="margin-bottom: 5px;">
-                                <a href="{{ route('produk-kategori', $produk->kategori_produk->slug) }}" class="badge bg-warning" style="text-decoration: none;"><i class="bi bi-tag"></i>  {{ $produk->kategori_produk->nama_kategori}}</a>
+                    @forelse ($produkKategori as $row)
+                    <div class="col-md-6 mt-4">
+                        <div class="card">
+                            <a href="{{ route('detail-produk', $row->slug) }}">
+                                <img src=" {{ asset('uploads/' . $row->foto ) }} " class="card-img-top" height="300" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <a href="{{ route('produk-kategori', $row->slug) }}" class="badge bg-warning" style="text-decoration: none; margin-bottom: 5px;"><i class="bi bi-tag"></i> {{ $row->kategori_produk->nama_kategori }}</a>
+                                <a href="{{ route('toko-desa', $row->toko->slug) }}" class="badge bg-success" style="text-decoration: none; margin-bottom: 5px;"><i class="bi bi-shop"></i> {{ $row->toko->nama_toko}}</a>
                                 <span class="badge bg-primary"><i class="bi bi-eye-fill"></i></i>
-                                    {{ $produk->views }}
-                                </span>
-                            </div>
-                            <h1 class="mt-3 mb-4">{{ $produk->harga }}</h1>
-                            <div class="mt-3 mb-4 mx-auto">
-                                <a href="https://wa.me/{{ $produk->toko->no_telp }}?file={{ asset('uploads/' . $produk->foto) }}&text=Hai%20Saya%20...%0ASaya%20Lihat%20Produk%20Anda%20Di%20Aplikasi%20Tambong%20In%20Your%20Hand%0ASaya%20Mau%20Pesan%20Sesuatu" onclick='window.open(this.href,"popupwindow","status=0,height=500,width=500,resizable=0,top=50,left=100");return false;' rel='noopener noreferrer' target='_blank' title='Whatsapp' type="button" class="btn btn-success btn-lg"><i class="bi bi-whatsapp"></i>
-                                    &ensp;Pesan Sekarang
-                                </a>
-                            </div>
-                            {{-- Deskrpsi Berita --}}
-                            <div class="detail-body">
-                                <hr><h6>Deskripsi Produk</h6><hr>
-                                <p>
-                                    {!! $produk->deskripsi !!}
+                                    {{ $row->views }}
+                               </span>
+                                <p class="card-title mt-2">
+                                    <a href="{{ route('detail-produk', $row->slug) }}" style="text-decoration: none; color: black;">{{ $row ->nama_produk }}</a>
                                 </p>
+                                <h3 class="card-text">{{ $row->harga }}</h3>
                             </div>
-                            <hr class="mt-5">
-                            <div class="detail-toko">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <img src="{{ asset('uploads/' . $produk->toko->foto ) }}" alt="" width="50" height="50" class="img-fluid">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <a href="" style="text-decoration: none; color:black">
-                                            <h5>{{ $produk->toko->nama_toko }}</h5>
-                                        </a>
-                                        <p>Alamat &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;:  {{ $produk->toko->alamat }}</p>
-                                        <p style="margin-top: -12px;">No Telephone : {{ $produk->toko->no_telp }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
                         </div>
                     </div>
+                    @empty
+                        <p>Data Masih Kosong</p>
+                    @endforelse
                 </div>
             </div>
+
             {{-- Sidebar --}}
             <div class="col-lg-4" style="margin-top: 90px; background-color:rgb(245, 245, 245);">
                 {{-- Tanggal dan Jam --}}

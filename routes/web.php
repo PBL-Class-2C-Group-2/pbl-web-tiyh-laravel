@@ -40,6 +40,8 @@ Route::get('/kategori/{kategori}', [FrontendController::class, 'detail_kategori'
 // Produk Desa
 Route::get('/produk-desa', [FrontendController::class, 'produk_desa'])->name('produk-desa');
 Route::get('/detail-produk/{slug}', [FrontendController::class, 'detail_produk'])->name('detail-produk');
+Route::get('/kategori-produk/{kategoriproduk}', [FrontendController::class, 'kategoriProduk'])->name('produk-kategori');
+Route::get('/toko-desa/{slug}', [FrontendController::class, 'tokoDesa'])->name('toko-desa');
 // Tentang Desa
 Route::get('/tentang-desa', [FrontendController::class, 'tentang_desa'])->name('tentang-desa');
 Route::get('/visimisi', [FrontendController::class, 'visimisi'])->name('visimisi');

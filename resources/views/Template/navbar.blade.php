@@ -46,7 +46,6 @@
             <li><a class="dropdown-item" href="{{ route('visimisi') }}">Visi Misi</a></li>
             <li><a class="dropdown-item" href="{{ route('aparatur-desa')}}">Aparatur Desa</a></li>
             <li><a class="dropdown-item" href="{{ route('galeri-desa') }}">Galeri Desa</a></li>
-            <li><a class="dropdown-item" href="#">Sejarah</a></li>
           </ul>
         </li>
         <br>

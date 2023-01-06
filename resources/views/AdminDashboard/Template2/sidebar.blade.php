@@ -130,7 +130,6 @@
                         <a class="collapse-item" href="{{ route('aparatur.index') }}"><i class="fas fa-fw fa-people-group"></i> Aparatur Desa</a>
                         <a class="collapse-item" href="{{ route('visi-misi.index') }}"><i class="fas fa-fw fa-bookmark"></i> Visi Misi</a>
                         <a class="collapse-item" href="{{ route('galeri.index') }}"><i class="fas fa-fw fa-folder-open"></i> Galeri Desa</a>
-                        <a class="collapse-item" href="#"><i class="fas fa-fw fa-info"></i> Informasi Desa</a>
                     </div>
                 </div>
             </li>

@@ -7,12 +7,14 @@
         @php $i = 1; @endphp
         @foreach ($produk as $row)
             <div class="carousel-item {{ $i == '1' ? 'active':'' }}" data-bs-interval="5000">
-                @php $i++; @endphp
-                @if ($row->foto)
-                <img src="{{ asset('uploads/' . $row->foto) }}" class="d-block w-100" height="600" alt="...">
-                @else
-                <img src="{{ asset('Photo/slider.JPG') }}" class="d-block w-100" height="500" alt="...">
-                @endif
+                <a href="{{ route('detail-produk', $row->slug) }}">
+                    @php $i++; @endphp
+                    @if ($row->foto)
+                    <img src="{{ asset('uploads/' . $row->foto) }}" class="d-block w-100" height="600" alt="...">
+                    @else
+                    <img src="{{ asset('Photo/slider.JPG') }}" class="d-block w-100" height="500" alt="...">
+                    @endif
+                </a>
             </div>
         @endforeach
 
@@ -38,10 +40,10 @@
         </div>
     </div>
     <div class="row row-cols-1 row-cols-md-2 g-4">
-        @forelse ($kategori_produk as $item)
+        @forelse ($kategori as $item)
         <div class="col-md-2">
             <div class="card">
-                <a href="" style="text-decoration: none; color:black;">
+                <a href="{{ route('produk-kategori', $item->slug) }}" style="text-decoration: none; color:black;">
                     <img src="{{ asset('uploads/' . $item->gambar) }}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title text-center">{{ $item->nama_kategori }}</h5>
@@ -62,28 +64,21 @@
         <hr style="height:10px;background:#d3ea3e;border:4px double #ffffff;">
     </div>
     @forelse ($produk as $row)
-        <div class="col-md-4 mt-2">
+        <div class="col-md-4 mt-2 mb-2">
             <div class="card">
                 <a href="{{ route('detail-produk', $row->slug) }}">
                     <img src=" {{ asset('uploads/' . $row->foto ) }} " class="card-img-top" height="250" alt="...">
                 </a>
                 <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="{{ route('detail-produk', $row->slug) }}" style="text-decoration: none; color: black;">{{ $row ->nama_produk }}</a>
-                    </h5>
-                    <p class="card-text">{!! Str::limit($row->deskripsi, 100) !!}</p>
-                </div>
-                <div class="card-footer" style="background-color: rgb(255, 255, 255);">
-                    <a href="#" class="badge bg-warning" style="text-decoration: none; margin-bottom: 5px;"><i class="bi bi-tag"></i> {{ $row->kategori_produk->nama_kategori }}</a>
-                    <span class="badge bg-success"><i class="bi bi-shop"></i>
-                        {{ $row->toko->nama_toko}}
-                    </span>
+                    <a href="{{ route('produk-kategori', $row->kategori_produk->slug) }}" class="badge bg-warning" style="text-decoration: none; margin-bottom: 5px;"><i class="bi bi-tag"></i> {{ $row->kategori_produk->nama_kategori }}</a>
+                    <a href="{{ route('toko-desa', $row->toko->slug) }}" class="badge bg-success" style="text-decoration: none; margin-bottom: 5px;"><i class="bi bi-shop"></i> {{ $row->toko->nama_toko}}</a>
                     <span class="badge bg-primary"><i class="bi bi-eye-fill"></i></i>
                         {{ $row->views }}
                    </span>
-                    <span class="badge bg-secondary"><i class="bi bi-calendar-check"></i>
-                         {{ $row->created_at}}
-                    </span>
+                    <p class="card-title mt-2">
+                        <a href="{{ route('detail-produk', $row->slug) }}" style="text-decoration: none; color: black;">{{ $row ->nama_produk }}</a>
+                    </p>
+                    <h3 class="card-text">{{ $row->harga }}</h3>
                 </div>
             </div>
         </div>
