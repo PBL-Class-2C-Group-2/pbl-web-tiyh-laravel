@@ -37,4 +37,17 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
 });
 
+// Api Frontend
+// Berita API
+Route::get('/front-berita', [App\Http\Controllers\API\FrontEndController::class, 'berita_api']);
+Route::get('/front-kategori-berita', [App\Http\Controllers\API\FrontEndController::class, 'kategori_berita_api']);
+// Produk API
+Route::get('/front-produk', [App\Http\Controllers\API\FrontEndController::class, 'produk_api']);
+Route::get('/front-kategori-produk', [App\Http\Controllers\API\FrontEndController::class, 'kategori_produk_api']);
+Route::get('/front-toko', [App\Http\Controllers\API\FrontEndController::class, 'toko_api']);
+// Tentang Desa
+Route::get('/front-slider', [App\Http\Controllers\API\FrontEndController::class, 'slider_api']);
+Route::get('/front-aparatur', [App\Http\Controllers\API\FrontEndController::class, 'aparatur_api']);
+Route::get('/front-galeri', [App\Http\Controllers\API\FrontEndController::class, 'galeri_api']);
+Route::get('/front-visi-misi', [App\Http\Controllers\API\FrontEndController::class, 'visimisi_api']);
 
