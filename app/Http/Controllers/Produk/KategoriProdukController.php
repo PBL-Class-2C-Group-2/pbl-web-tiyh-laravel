@@ -52,14 +52,14 @@ class KategoriProdukController extends Controller
 
             KategoriProduk::create($kategori);
 
-            return redirect()->route('kategori-produk.index')->with('success', 'Data Berhasil Tersimpan!');
+            return redirect()->route('kategori_produk.index')->with('success', 'Data Berhasil Tersimpan!');
         } else {
             $kategori = $request->all();
             $kategori['slug'] = Str::slug($request->nama_kategori);
 
             KategoriProduk::create($kategori);
 
-            return redirect()->route('kategori-produk.index')->with('success', 'Data Berhasil Tersimpan!');
+            return redirect()->route('kategori_produk.index')->with('success', 'Data Berhasil Tersimpan!');
         }
     }
 
@@ -106,7 +106,7 @@ class KategoriProdukController extends Controller
                 'nama_kategori' => $request->nama_kategori,
                 'slug' => Str::slug($request->nama_kategori)
             ]);
-            return redirect()->route('kategori-produk.index')->with('info', 'Data Berhasil Diubah!');
+            return redirect()->route('kategori_produk.index')->with('info', 'Data Berhasil Diubah!');
         } else {
             $kategori = KategoriProduk::findorfail($id);
             Storage::delete($kategori->gambar);
@@ -115,7 +115,7 @@ class KategoriProdukController extends Controller
                 'slug' => Str::slug($request->nama_kategori),
                 'gambar' => $request->file('gambar')->store('kategoriProduk')
             ]);
-            return redirect()->route('kategori-produk.index')->with('info', 'Data Berhasil Diubah!');
+            return redirect()->route('kategori_produk.index')->with('info', 'Data Berhasil Diubah!');
         }
     }
 
@@ -135,6 +135,6 @@ class KategoriProdukController extends Controller
         Storage::delete($kategori->gambar);
         $kategori->delete();
 
-        return redirect()->route('kategori-produk.index')->with('success', 'Data Berhasil Dihapus!');
+        return redirect()->route('kategori_produk.index')->with('success', 'Data Berhasil Dihapus!');
     }
 }

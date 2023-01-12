@@ -34,7 +34,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <a href="{{route('kategori-produk.create')}}" class="btn btn-primary btn-icon-split">
+                            <a href="{{route('kategori_produk.create')}}" class="btn btn-primary btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -63,9 +63,9 @@
                                             <td><img src=" {{ asset('uploads/' . $object->gambar) }} " width="100"></td>
                                             <td>
                                                 <!-- Update Button -->
-                                                <a href="{{route('kategori-produk.edit', $object->id)}}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                                                <a href="{{route('kategori_produk.edit', $object->id)}}" class="btn btn-info"><i class="fas fa-edit"></i></a>
                                                 <!-- Delete Button -->
-                                                <form action="{{route('kategori-produk.destroy', $object->id)}}" method="POST" class="d-inline">
+                                                <form action="{{route('kategori_produk.destroy', $object->id)}}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="btn btn-danger">

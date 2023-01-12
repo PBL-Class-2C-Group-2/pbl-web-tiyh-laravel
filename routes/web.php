@@ -82,7 +82,7 @@ Route::group(['middleware' => ['auth']], function() {
     // Galeri
     Route::resource('galeri', GaleriController::class);
     // Kategori Produk
-    Route::resource('kategori-produk', KategoriProdukController::class);
+    Route::resource('kategori_produk', KategoriProdukController::class);
     // Toko
     Route::resource('toko', TokoController::class);
     // Produk

@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{route('kategori-produk.store')}}" enctype="multipart/form-data">
+                            <form method="POST" action="{{route('kategori_produk.store')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="">Nama Kategori</label>

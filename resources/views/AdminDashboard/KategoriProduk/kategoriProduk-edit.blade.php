@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{route('kategori-produk.update', $kategori->id ) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{route('kategori_produk.update', $kategori->id ) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
