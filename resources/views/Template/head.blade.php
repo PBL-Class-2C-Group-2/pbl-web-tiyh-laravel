@@ -49,7 +49,7 @@
     }
     .nav-link {
       font-weight: bold;
-      font-size: 14px;
+      font-size: 12px;
       text-transform: uppercase;
       text-decoration: none;
       color: #031D44;
